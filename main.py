@@ -16,3 +16,14 @@ orch.add_task(2, "Dataset profiling done")
 print(orch.next_task())
 print(orch.next_task())
 print(orch.next_task())
+
+from src.routing import shortest_path
+
+graph = {
+    "CloudShield": ["Sentinel"],
+    "Sentinel": ["CloudShield", "AutoPilot"],
+    "AutoPilot": ["Sentinel"]
+}
+
+print(shortest_path(graph, "CloudShield", "AutoPilot"))
+print(shortest_path(graph, "CloudShield", "UnknownAgent"))
